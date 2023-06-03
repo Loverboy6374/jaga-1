@@ -1,0 +1,71 @@
+06.03 11:18 AM
+Sentiment analysis
+from textblob import TextBlob
+
+tex = """This world is cruel =
+
+And yet, I still wuv you
+
+Even if I sacrifice everything
+
+I'll still protect you
+
+Even if I'm wrong I don't doubt myself
+
+Because what's right
+
+Is to firmly believe in yourself"""
+
+text = TextBlob(tex)
+
+sent=text.sentiment.polarity
+
+if sent > 0:
+
+print("Positive Sentence with a polarity of {sent}")
+
+elif sent < 0:
+
+print(f"Negative Sentence with a polarity of {sent}")
+else:
+
+print(f"Neutral Statement with a polarity of {sent}")
+
+
+!pip install ydata-profiling 
+
+from ydata_profiling import ProfileReport 
+import pandas as pd
+import warnings
+warnings.filterwarnings("ignore")
+
+df = pd.read_csv("animes.csv")
+df = df.dropna()
+df['title'].head()
+
+0 Haikyuu!! Second Season
+1 Shigatsu wa Kimi no Uso
+2 Made in Abyss 
+3 Fullmetal Alchemist: Brotherhood Kizumonogatari III: Reiketsu-hen
+Name: title, dtype: object
+
+report = ProfileReport(df, title="Anime Enrichment Report")
+report.to_notebook_iframe()
+
+Summarize dataset: 0%
+
+</> Generate report structure:
+
+</>
+
+Render HTML:
+
+0%|
+
+| 0/5 [00:00<?, ?it/s]
+
+0%
+
+| 0/1 [00:00<?, ?it/s]
+
+| 0/1 [00:00<?, ?it/s]
